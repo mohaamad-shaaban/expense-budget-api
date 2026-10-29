@@ -1,6 +1,6 @@
 package com.expense.expense_budget_api.controller;
 
-import com.expense.expense_budget_api.dto.LoginDto;
+import com.expense.expense_budget_api.dto.LoginRequest;
 import com.expense.expense_budget_api.dto.RegisterDto;
 import com.expense.expense_budget_api.dto.UserDto;
 import com.expense.expense_budget_api.service.UserService;
@@ -21,7 +21,7 @@ public class UserController {
     }
 
     @PostMapping("/login")
-    public ResponseEntity<UserDto> login(@Valid @RequestBody LoginDto dto) {
+    public ResponseEntity<UserDto> login(@Valid @RequestBody LoginRequest dto) {
         return ResponseEntity.ok(userService.login(dto));
     }
 }

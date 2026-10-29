@@ -1,6 +1,6 @@
 package com.expense.expense_budget_api.service;
 
-import com.expense.expense_budget_api.dto.LoginDto;
+import com.expense.expense_budget_api.dto.LoginRequest;
 import com.expense.expense_budget_api.dto.RegisterDto;
 import com.expense.expense_budget_api.dto.UserDto;
 import com.expense.expense_budget_api.entity.User;
@@ -25,7 +25,7 @@ public class UserService {
         return mapToDto(savedUser);
     }
 
-    public UserDto login(LoginDto dto) {
+    public UserDto login(LoginRequest dto) {
         User user = userRepository.findByEmail(dto.getEmail())
                 .orElseThrow(() -> new RuntimeException("Invalid email or password"));
         if (!user.getPasswordHash().equals(dto.getPassword())) {
